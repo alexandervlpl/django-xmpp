@@ -6,8 +6,10 @@
 	<link rel="stylesheet" href="{% static "css/converse.min.css" %}" type="text/css">
 
 	<script type="text/javascript">
-		require(['converse'], function (converse) {
-			converse.initialize({% autoescape off %}{{conversejs_settings}}{% endautoescape %});
-		});
+		if ($( window ).width() > 768) {
+			require(['converse'], function (converse) {
+				converse.initialize({% autoescape off %}{{conversejs_settings}}{% endautoescape %});
+			});
+		};
 	</script>
 {% endif %}
